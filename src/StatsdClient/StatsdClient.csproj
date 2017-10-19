@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Statsd client for C#, providing a full set of counter/timer/gauge/set functionality in an easy to use static. Helpers are provided for easily timing chunks of code too.</Description>
+    <AssemblyTitle>Statsd C# Client</AssemblyTitle>
+    <Authors>Goncalo Pereira;Darrell Mozingo</Authors>
+    <TargetFrameworks>net45;netstandard1.3</TargetFrameworks>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AssemblyName>StatsdClient</AssemblyName>
+    <PackageId>StatsdClient</PackageId>
+    <PackageTags>stats;statsd;metrics</PackageTags>
+    <PackageReleaseNotes>See CHANGELOG.md in the project's GitHub repository.</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/Pereingo/statsd-csharp-client</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/Pereingo/statsd-csharp-client/blob/master/MIT-LICENSE.md</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/Pereingo/statsd-csharp-client</RepositoryUrl>
+    <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netstandard1.3' ">$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
+    <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netstandard1.3' ">1.6.0</NetStandardImplicitPackageVersion>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <DefineConstants>$(DefineConstants);NETFULL</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
+    <PackageReference Include="System.Net.NameResolution" Version="4.0.0" />
+  </ItemGroup>
+
+</Project>
